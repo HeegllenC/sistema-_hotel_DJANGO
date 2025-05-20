@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class ModelBase(models.Model):
     id = models.BigAutoField(
         db_column='id',
@@ -70,7 +71,6 @@ class Quarto(ModelBase):
         choices=TIPOS_CHOICES, default='SOLTEIRO'
     )
 
-
     valor_diaria = models.DecimalField(
         max_digits=10,
         decimal_places=2
@@ -107,4 +107,5 @@ class Reserva(ModelBase):
     quantidade_dias = models.IntegerField()
 
     def __str__(self):
+
         return f"Reserva de {self.hospede.nome} no quarto {self.quarto.tipo}"
